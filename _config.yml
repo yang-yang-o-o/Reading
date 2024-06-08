@@ -1,7 +1,7 @@
 # Site settings
 title:          Reading
 description:    ""
-baseurl:        "/tale"
+# baseurl:        "/tale"
 url:            "https://yang-yang-o-o.github.io"
 
 # Google Analytics
