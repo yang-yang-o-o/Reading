@@ -1,4 +1,5 @@
-<a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
+<a href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ site.url }}{{ post.url }}{% endif %}"
+      {% if post.external_url %}target="_blank" rel="noopener noreferrer"{% endif %} class="catalogue-item">
   <div>
     {% if include.sticky == 'true' %}
     <span class="catalogue-pinned">Pinned &middot;</span>
@@ -7,7 +8,11 @@
     <span class="tags-post-title">
       {{ post.description }}
     </span>
-    <h1 class="catalogue-title">{{ post.title }}</h1>
+    <h1 class="catalogue-title">{{ post.title }}
+      {% if post.external_url %}
+      <span style="font-size: 0.8em; opacity: 0.6;">↗</span>
+      {% endif %}
+    </h1>
     <div class="catalogue-line"></div>
 
     <!-- <p>
